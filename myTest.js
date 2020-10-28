@@ -21,5 +21,5 @@ app.get('/', (req, res)=> {
 
 
 app.listen(port, ()=> {
-    console.log('server start port number is :', port);
+    console.log('server start port number is a:', port);
 })
