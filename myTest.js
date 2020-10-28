@@ -21,5 +21,9 @@ app.get('/', (req, res)=> {
 
 
 app.listen(port, ()=> {
+<<<<<<< HEAD
     console.log('server start port number is a:', port);
+=======
+    console.log('server start port number:', port);
+>>>>>>> b8b0ad4901ef051b5322bf656c29fb6d4412809b
 })
