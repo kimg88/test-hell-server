@@ -1,6 +1,18 @@
 const express = require('express');
 const router = express.Router();
 
+
+router.get('/v1',(req,res)=>{
+    return res.json({
+        name: 'a',
+        password: 'bc',
+        gender: 'male',
+        age: 1,
+        boolean: true
+    });
+});
+
+
 router.get('/v1/:id',(req,res)=>{
     return res.json({
         name: 'a',
