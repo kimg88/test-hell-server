@@ -42,23 +42,42 @@ router.get('/v1/:id',(req,res)=>{
         return item.id === Number(req.params.id)
     });
 
-    return res.json({
+    return res.status(200).json({
         result: search
     });
+});
+
+router.post('/v1',(req,res)=>{
+    let newPerson = req.body.person;
+    newPerson.id = db.length;
+    db.push(newPerson);
+    return res.status(200).json({
+        result: db
+    })
 });
 
 router.put('/v1',(req,res)=>{
     const id = Number(req.body.id);
     const changedName = req.body.name;
-    db = db.map(item=>{
+    
+    const findId = db.findIndex(item=>{
+        return item.id === id;
+    })
+    console.log(findId)
+    if(findId === -1){
+        return res.status(500).send('error code: abcd');
+    }
+
+    let result = db.map(item=>{
         if(item.id === id){
             item.name = changedName;
         }
         return item;
-    })
-    return res.json({
-        result: db
+    });
+    return res.status(200).json({
+        result: result
     });
 });
+
 
 module.exports = router;
