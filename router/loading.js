@@ -39,7 +39,7 @@ router.get('/v1',(req,res)=>{
 
 router.get('/v1/:id',(req,res)=>{
     const search = db.filter((item)=>{
-        item.id === req.params.id
+        return item.id === req.params.id
     });
 
     return res.json({
