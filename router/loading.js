@@ -39,7 +39,7 @@ router.get('/v1',(req,res)=>{
 
 router.get('/v1/:id',(req,res)=>{
     const search = db.filter((item)=>{
-        return item.id === req.params.id
+        return item.id === Number(req.params.id)
     });
 
     return res.json({
@@ -48,7 +48,7 @@ router.get('/v1/:id',(req,res)=>{
 });
 
 router.put('/v1',(req,res)=>{
-    const id = req.body.id;
+    const id = Number(req.body.id);
     const changedName = req.body.name;
     db = db.map(item=>{
         if(item.id === id){
