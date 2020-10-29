@@ -5,6 +5,7 @@
     "nodemon": "^2.0.6"
   },
   "scripts": {
-    "start": "nodemon exam.js"
+    "start": "nodemon app.js",
+    "ks_start": "nodemon exam.js"
   }
 }
